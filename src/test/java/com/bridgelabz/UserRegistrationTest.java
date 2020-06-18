@@ -78,7 +78,7 @@ public class UserRegistrationTest {
     @Test
     public void givenPassword_WhenProper_ShouldReturnTrue() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean isValid = userRegistration.validatePassword("abcdEfgh");
+        boolean isValid = userRegistration.validatePassword("abcdE$fgh9"); // This usecase is not running uc8
         Assert.assertTrue(isValid);
     }
     @Test
@@ -88,9 +88,15 @@ public class UserRegistrationTest {
         Assert.assertFalse(isValid);
     }
     @Test
-    public void givenPassword_WhenNotProper_ShouldReturnFalse() {
+    public void givenPassword_WhenNotProperForUppercase_ShouldReturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean isValid = userRegistration.validatePassword("dCgv4");
+        boolean isValid = userRegistration.validatePassword("dcgvhty4");
+        Assert.assertFalse(isValid);
+    }
+    @Test
+    public void givenPassword_WhenNotProperForNumber_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validatePassword("dCgvhtyg");
         Assert.assertFalse(isValid);
     }
 }
