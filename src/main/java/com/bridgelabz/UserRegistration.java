@@ -32,6 +32,11 @@ public class UserRegistration {
             result = false;
         return result;
     }
+    public static final String MOBILE_NO_REGEX = "^+[1-9]{2}[: :][0-9]{10}$";
+    public boolean validateMobileNo(String mobileNo) {
+        Pattern pattern = Pattern.compile(MOBILE_NO_REGEX);
+        return pattern.matcher(mobileNo).matches();
+    }
 
 }
 
