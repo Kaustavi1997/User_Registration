@@ -63,5 +63,29 @@ public class UserRegistrationTest {
         boolean isValid = userRegistration.validateMobileNo("91 4456830064");
         Assert.assertTrue(isValid);
     }
+    @Test
+    public void givenMobileNo_WhenNotProperForCountryCode_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validateMobileNo("7889898");
+        Assert.assertFalse(isValid);
+    }
+    @Test
+    public void givenMobileNo_WhenNotProper_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validateMobileNo("91 7889898");
+        Assert.assertFalse(isValid);
+    }
+    @Test
+    public void givenPassword_WhenProper_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validatePassword("Abcdkje8");
+        Assert.assertTrue(isValid);
+    }
+    @Test
+    public void givenPassword_WhenNotProper_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validatePassword("dcgv4");
+        Assert.assertFalse(isValid);
+    }
 
 }
