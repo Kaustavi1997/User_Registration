@@ -37,7 +37,7 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile(MOBILE_NO_REGEX);
         return pattern.matcher(mobileNo).matches();
     }
-    public static final String PASSWORD_REGEX = "^[A-Za-z0-9]{8,}$";
+    public static final String PASSWORD_REGEX = "(?=.*?[A-Z])[A-Za-z0-9]{8,}$";
     public boolean validatePassword(String password) {
         Pattern pattern = Pattern.compile(PASSWORD_REGEX);
         return pattern.matcher(password).matches();

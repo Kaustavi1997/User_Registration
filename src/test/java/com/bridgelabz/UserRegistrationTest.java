@@ -78,14 +78,19 @@ public class UserRegistrationTest {
     @Test
     public void givenPassword_WhenProper_ShouldReturnTrue() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean isValid = userRegistration.validatePassword("Abcdkje8");
+        boolean isValid = userRegistration.validatePassword("abcdEfgh");
         Assert.assertTrue(isValid);
     }
     @Test
-    public void givenPassword_WhenNotProper_ShouldReturnFalse() {
+    public void givenPassword_WhenNotProperFor8characters_ShouldReturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
         boolean isValid = userRegistration.validatePassword("dcgv4");
         Assert.assertFalse(isValid);
     }
-
+    @Test
+    public void givenPassword_WhenNotProper_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validatePassword("dCgv4");
+        Assert.assertFalse(isValid);
+    }
 }
