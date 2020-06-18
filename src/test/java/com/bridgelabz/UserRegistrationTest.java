@@ -39,5 +39,23 @@ public class UserRegistrationTest {
         boolean isValid = userRegistration.validateLastName("sen");
         Assert.assertFalse(isValid);
     }
+    @Test
+    public void givenEmail_WhenProper_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validateEmail("abc@yahoo.com");
+        Assert.assertTrue(isValid);
+    }
+    @Test
+    public void givenEmail_WhenProperWithOptionalPart_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validateEmail("abc-100@yahoo.com");
+        Assert.assertTrue(isValid);
+    }
+    @Test
+    public void givenEmail_WhenNotProperForUppercaseCharacter_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validateEmail("abc123@.com");
+        Assert.assertFalse(isValid);
+    }
 
 }
