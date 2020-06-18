@@ -21,4 +21,23 @@ public class UserRegistrationTest {
         boolean isValid = userRegistration.validateFirstName("kaustavi");
         Assert.assertFalse(isValid);
     }
+    @Test
+    public void givenLastName_WhenProper_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validateLastName("Sen");
+        Assert.assertTrue(isValid);
+    }
+    @Test
+    public void givenLastName_WhenNotProper_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validateLastName("Se");
+        Assert.assertFalse(isValid);
+    }
+    @Test
+    public void givenLastName_WhenNotProperForUppercaseCharacter_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean isValid = userRegistration.validateLastName("sen");
+        Assert.assertFalse(isValid);
+    }
+
 }
